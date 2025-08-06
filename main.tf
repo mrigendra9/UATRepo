@@ -20,3 +20,8 @@ resource "azurerm_storage_account" "storage1" {
   account_replication_type = "LRS"
   depends_on = [azurerm_resource_group.rg]
 }
+
+resource "azurerm_resource_group" "rgname" {
+  name = "rgname-uat"
+  location = "West India"
+}
