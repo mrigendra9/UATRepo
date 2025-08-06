@@ -20,3 +20,28 @@ resource "azurerm_storage_account" "storage1" {
   account_replication_type = "LRS"
   depends_on = [azurerm_resource_group.rg]
 }
+
+resource "azurerm_virtual_network" "vnet" {
+name = "uatrepo-vnet"
+resource_group_name = azurerm_resource_group.rg.name
+location = azurerm_resource_group.rg.location
+address_space = [ "192.168.10.0/24" ]
+dns_servers = "192.168.10.11"
+}
+
+resource "azurerm_subnet" "subnet" {
+  name = "subnet"
+  resource_group_name = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes = "192.168.10.0/26" 
+}
+resource "azurerm_subnet" "subnet1" {
+  name = "subnet"
+  resource_group_name = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes = "192.168.11.0/24"
+ 
+}
+
+
+
