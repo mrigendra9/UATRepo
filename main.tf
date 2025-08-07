@@ -26,6 +26,18 @@ resource "azurerm_storage_account" "storage1" {
   depends_on = [azurerm_resource_group.rg]
 }
 
+
+resource "azurerm_resource_group" "rgname" {
+  name = "rgname-uat"
+  location = "West India"
+}
+
+
+resource "azurerm_resource_group" "rgname1" {
+  name = "rgname-uat1"
+  location = "West India"
+}
+
 resource "azurerm_virtual_network" "vnet" {
 name = "uatrepo-vnet"
 resource_group_name = azurerm_resource_group.rg.name
@@ -55,7 +67,5 @@ resource "azurerm_subnet" "subnet2" {
   address_prefixes = "192.168.12.0/24"
  
 }
-
-
 
 
