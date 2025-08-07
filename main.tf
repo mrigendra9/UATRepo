@@ -25,3 +25,9 @@ resource "azurerm_resource_group" "rgname" {
   name = "rgname-uat"
   location = "West India"
 }
+
+
+resource "azurerm_resource_group" "rgname1" {
+  name = "rgname-uat1"
+  location = "West India"
+}
