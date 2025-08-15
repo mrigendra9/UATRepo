@@ -43,7 +43,7 @@ name = "uatrepo-vnet"
 resource_group_name = azurerm_resource_group.rg.name
 location = azurerm_resource_group.rg.location
 address_space = [ "192.168.10.0/24" ]
-dns_servers = "192.168.10.11"
+# dns_servers = "192.168.10.11"
 }
 
 resource "azurerm_subnet" "subnet" {
